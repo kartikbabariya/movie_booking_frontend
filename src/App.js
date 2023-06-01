@@ -1,23 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import HomePage from './Component/HomePage/HomePage';
+import MovieList from './Component/MovieList';
+import MovieTimeScreen from './Component/MovieTimeScreen';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import SeatArrangement from './Component/SeatArrangement';
+import Login from './Component/Login';
+import SignUp from './Component/SignUp';
+import PrivateRoute from './utils/PrivateRoute';
+import Admin from './Component/Admin';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      {/* <BrowserRouter> */}
+        <Routes>
+          {/* <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
+          <Route element={<PrivateRoute />}>
+            <Route path="/user/*" element={<Admin />} />
+          </Route> */}
+          <Route path="/" element={<MovieList />} />
+          <Route path="/movieScreenList" element={<MovieTimeScreen />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/bookMovie" element={<SeatArrangement />} />
+          <Route path="/signUp" element={<SignUp />} />
+        </Routes>
+      {/* </BrowserRouter> */}
     </div>
   );
 }

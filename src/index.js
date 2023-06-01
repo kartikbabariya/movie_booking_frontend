@@ -4,10 +4,26 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// redux
+import { Provider } from "react-redux";
+
+import store from "./store/provider";
+
+// import { baseURL } from "./util/config";
+import axios from "axios";
+import { BrowserRouter } from 'react-router-dom';
+
+axios.defaults.baseURL = "http://localhost:5000";
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+    
+    <Provider store={store}>
+      <App />
+    </Provider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
